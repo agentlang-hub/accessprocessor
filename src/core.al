@@ -76,7 +76,7 @@ flow accessOrchestrator {
     role "You are an access management and identity governance specialist."
 }
 
-workflow @after update:servicenow/incident {
+workflow @after create:servicenow/incident {
     if ((servicenow/incident.category == "ACCESS" or servicenow/incident.ai_processor == "access") and servicenow/incident.ai_status == "in-processing") {
         {incidentInformation {
             sys_id servicenow/incident.sys_id,
